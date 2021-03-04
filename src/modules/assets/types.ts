@@ -3,8 +3,3 @@ export enum AssetType {
   SCENE = 'scene',
   COMPONENT = 'component',
 }
-
-export type TError = {
-  code: number;
-  title: string;
-};
