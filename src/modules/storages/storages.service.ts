@@ -1,16 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { StorageDirectory } from './entities/storage-directory.entity';
 import { StorageFile } from './entities/storage-file.entity';
+import mockData from './mock-data';
 
-const root: StorageDirectory = {
-  name: '/',
-  children: {
-    test: {
-      name: 'test',
-      children: {},
-    } as StorageDirectory,
-  },
-} as StorageDirectory;
+const root: StorageDirectory = mockData;
 
 const createDirectory = (path: string): StorageDirectory | undefined => {
   const name = path.split('/').pop();
