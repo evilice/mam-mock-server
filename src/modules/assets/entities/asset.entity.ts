@@ -3,8 +3,7 @@ import { AssetCreateEntity } from './asset-create.entity';
 
 export class Asset extends AssetCreateEntity {
   @ApiProperty({
-    example: 'f423-4j12a-dfjasdk234-34jasdlasd',
-    description: 'Asset identificator',
+    description: 'Media asset identifier',
   })
-  id: string;
+  mediAassetId: number;
 }

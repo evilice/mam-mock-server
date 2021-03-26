@@ -6,7 +6,7 @@ import {
   Delete,
   Param,
   Body,
-  Res,
+  ParseIntPipe,
 } from '@nestjs/common';
 import { AssetsService } from './assets.service';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
@@ -28,7 +28,7 @@ export class AssetsController {
   @Get(':id')
   @ApiOperation({ summary: 'Get asset' })
   @ApiResponse({ status: 200, type: Asset })
-  async getAsset(@Param('id') id: string): Promise<Asset> {
+  async getAsset(@Param('id', ParseIntPipe) id: number): Promise<Asset> {
     return this.service.getAsset(id);
   }
 

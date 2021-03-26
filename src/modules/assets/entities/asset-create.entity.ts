@@ -1,53 +1,46 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { AssetType } from '../types';
 
 export class AssetCreateEntity {
-  @ApiProperty({
-    example: 'media',
-    description: 'Asset content type',
-  })
-  type: AssetType;
+  @ApiProperty()
+  contentId: number;
+
+  @ApiProperty()
+  createUserId: number;
+
+  @ApiProperty()
+  lastedItUserId: number;
 
   @ApiProperty({
     example: 'Some asset name',
   })
-  name: string;
+  assetName: string;
 
-  @ApiProperty({
-    example: '10.20.30.40/share/some-dir/film.mp4',
-    description: 'Path to asset file',
-  })
-  path?: string;
+  @ApiProperty()
+  shortInfo: string;
 
   @ApiProperty({
     example: 6.7419,
   })
-  rate?: number;
-
-  @ApiProperty({
-    example: 'some text',
-    description: 'Brief description of the asset',
-  })
-  sketch: string;
-
-  @ApiProperty({
-    example: 'Some long text',
-    description: 'Full asset description',
-  })
-  description: string;
-
-  @ApiProperty()
-  created?: string;
+  rating?: number;
 
   @ApiProperty()
   duration?: number;
 
   @ApiProperty()
-  impressionCount: number;
+  genre: number[];
 
   @ApiProperty()
-  copyright: string;
+  createTime: number;
 
   @ApiProperty()
-  ganre: Array<string>;
+  lastedTime: number;
+
+  @ApiProperty()
+  airTime: number;
+
+  @ApiProperty()
+  markDelete: boolean;
+
+  @ApiProperty()
+  isTrusted: boolean;
 }

@@ -1,18 +1,23 @@
 import { Injectable } from '@nestjs/common';
 import { AssetCreateDto } from './dto';
 import { Asset } from './entities/asset.entity';
+import generatedAssetsList from './assets.generator';
 
 @Injectable()
 export class AssetsService {
   async getAssets(): Promise<Array<Asset>> {
     return new Promise((resolve, reject) => {
-      resolve([new Asset(), new Asset()]);
+      resolve(generatedAssetsList);
     });
   }
 
-  async getAsset(id: string): Promise<Asset> {
+  async getAsset(id: number): Promise<Asset> {
     return new Promise((resolve, reject) => {
-      resolve(new Asset());
+      const asset = generatedAssetsList.find(
+        ({ mediAassetId }) => mediAassetId === id,
+      );
+
+      resolve(asset);
     });
   }
 
